@@ -3,7 +3,7 @@ WITH DailyPrecip_MM AS (
         FROM SEA_weather
         GROUP BY Date
 )
-SELECT Date, TotalPrecip_mm, CASE
+SELECT COUNT(Date) as NumDays, CASE
         WHEN TotalPrecip_mm = 0.0 THEN 'No Rain'
         WHEN TotalPrecip_mm >= 0.1 AND TotalPrecip_mm < 1.0 THEN 'Very Light Rain'
         WHEN TotalPrecip_mm >= 1.0 AND TotalPrecip_mm < 11.0 THEN 'Light Rain'
@@ -12,9 +12,6 @@ SELECT Date, TotalPrecip_mm, CASE
         WHEN TotalPrecip_mm >= 71.0 AND TotalPrecip_mm < 151.0 THEN 'Very Heavy Rain'
         WHEN TotalPrecip_mm >= 151.0 THEN 'Extremely Heavy Rain'
         ELSE 'NULL'
-END AS RainIntensity,
-CASE
-        WHEN TotalPrecip_mm >= 1.0 THEN CAST(1 AS BIT)
-        ELSE CAST(0 AS BIT)
-END AS IsRainyDay
+END AS RainIntensity
 FROM DailyPrecip_MM
+GROUP BY RainIntensity
