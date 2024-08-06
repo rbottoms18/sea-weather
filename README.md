@@ -1,5 +1,7 @@
 # About
 
+View `weather_exploration.ipynb` to see the full analysis.
+
 <p align="center">
   <img src="https://github.com/rbottoms18/sea-weather/blob/master/img/max_temp_freq_summer.png" width="400"/>
 </p>
