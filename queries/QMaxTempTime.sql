@@ -9,6 +9,6 @@ With MaxTempTimes AS (
         WHERE Rank = 1
         GROUP BY Date
 )
-SELECT COUNT(Date), CAST(STRFTIME('%H', AvgTime) AS INT) as Hour
+SELECT CAST(COUNT(Date) as DOUBLE) / (SELECT COUNT(*) FROM MaxTempTimes) as Freq, CAST(STRFTIME('%H', AvgTime) AS INT) as Hour
 FROM MaxTempTimes
 GROUP BY Hour
