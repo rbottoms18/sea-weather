@@ -4,7 +4,7 @@ In this short project I created a a web scraper using Python to scrape weather d
 The scraper operates in a threaded manner and can pull data for a user-inputted range of years. It compiles and saves the data in `.csv` and `.sql` formats.
 
 I then used SQL in Python via the `sqlite3` package to perform some basic analysis of the data, including determining the time of the maximum temperature for each day, 
-how often Seattle is rainy or cloudy, and how often Seattle experiences smoke.
+how often Seattle is rainy or cloudy, and how often Seattle experiences smoke and plotted these results using `matplotlib`.
 
 View `weather_exploration.ipynb` to see the full analysis.
 
